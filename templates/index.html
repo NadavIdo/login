@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title%} {{ title }} {% endblock %}
+{% block content%}
+
+<div class="container py-4 text-center">
+
+
+    {% if current_user.is_authenticated %}
+
+    <h1>Welcome {{ current_user.username }} ! This page is secure</h1>
+    <a href="{{url_for('logout')}}">Logout</a>
+
+    {% else %}
+    <h1>Welcome to the super site</h1>
+    <a class="btn btn-primary" href="{{url_for('login')}}" style="background: rgb(255, 191, 0);" role="button">Sign Up \ Sign in</a>
+    
+    
+    {% endif %}
+</div>
+{% endblock %}
